@@ -1,4 +1,4 @@
-   const body = document.querySelector('body')
+const body = document.querySelector('body')
    
    function creatElements(){
         let divContainer = document.createElement('div')
@@ -25,21 +25,21 @@
     }
 
     async function getData (){
-        const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=$20"    
+      const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=$20"
 
-            await fetch(url)
+        await fetch(url)
     
-            .then((response) =>{
+        .then((response) =>{
              console.log(response)
              return response.json()
         })
+
         .then(async(data) => {
          for (const pokemons of data.results) {
             await fetch(pokemons.url)
-                .then((pokemonData) => {
-                    return pokemonData.json()
-                    })
-                    
+              .then((pokemonData) => {
+                return pokemonData.json()
+                })  
                     .then((dados) => {
                         console.log(dados,'dados')
                         let getName = dados.name
@@ -51,7 +51,6 @@
                 })
             }
         })
-
         .catch((error) =>{
             console.log(error)
         })
