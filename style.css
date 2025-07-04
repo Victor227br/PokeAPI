@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2a2e37;
+}
+
+.cardsPokemon{
+    display: flex;
+
+}
+
+.pokemonName{
+    color: aliceblue;
+}

@@ -1,15 +1,15 @@
 const body = document.querySelector('body')
    
-   function creatElements(){
+  async function createElements(getName){
         let divContainer = document.createElement('div')
-        divContainer.className = "cardsPokemons"
+        divContainer.className = "cardsPokemon"
         let pictureImg = document.createElement('img')
         pictureImg.className = "pokemonImg"
         let idNumber = document.createElement('p')
         idNumber.className = "pokemonId"
         let nameH2 = document.createElement('h2')
         nameH2.className = "pokemonName"
-        nameH2.textContent = getName
+        nameH2.textContent =  getName
         let typePokemon = document.createElement('p')
         typePokemon.className = "typePokemon"
 
@@ -40,14 +40,25 @@ const body = document.querySelector('body')
               .then((pokemonData) => {
                 return pokemonData.json()
                 })  
-                    .then((dados) => {
-                        console.log(dados,'dados')
-                        let getName = dados.name
-                        let getId = dados.id
-                        console.log(getName)
-                        console.log(getId)
-                        let getImg = document.getElementsByClassName("pokemonImg")
-                        getImg.src = dados.sprites['front_default']
+                .then((dados) => {
+                    console.log(dados,'dados')
+                    let getName = dados.name
+                    let getId = dados.id
+                    let getImg = document.getElementsByClassName("pokemonImg")
+                    getImg.src = dados.sprites['front_default']
+                    console.log(getName)
+                    console.log(getId)
+                   // console.log(getType)
+
+                    createElements(getName )
+
+                    let pokemon = {
+                        name : getName,
+                        id : getId
+                     }
+
+                     console.log(pokemon , "objeto")
+                    
                 })
             }
         })
