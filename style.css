@@ -13,10 +13,6 @@ body {
   padding-top: 20px;
 }
 
-.logo span{
-    margin: 0;
-    padding: 0;
-}
 
 #cardsContainer {
     display: flex;
@@ -57,12 +53,13 @@ body {
 }
 
 .box__NamePokemon {
-    text-transform: capitalize;
+    margin: 0;
+    margin-bottom: 1vw;
     font-size: 20px;
 }
 
 .box__IdPokemon {
-    font-size: 1vw;
+    font-size: 14px;
     color: #555;
 }
 
@@ -72,10 +69,10 @@ body {
     justify-content: center;
     margin-top: 1vw;
     height: 2vw;
-    width: 8vw;
+    width: 10vw;
     border-radius: 6px;
     color: white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .divButton__loading{
