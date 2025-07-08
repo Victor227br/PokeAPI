@@ -1,14 +1,104 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #2a2e37;
+    background-color: #445566;
 }
 
-.cardsPokemon{
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  padding-top: 20px;
+}
+
+.logo span{
+    margin: 0;
+    padding: 0;
+}
+
+#cardsContainer {
     display: flex;
-
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2vw;              
+    padding: 1vw;
 }
 
-.pokemonName{
-    color: aliceblue;
+.box__Cards {
+    display: flex;
+    align-items: center;
+    background-color: #e0e5ec;
+    flex-direction: column;
+    width: 15vw;
+    height: 21vw;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.box__Cards:hover {
+    transform: scale(1.05);
+}
+
+.box__Cards--img {
+    background-color: #2a2e37;
+    width: 13vw;
+    margin: 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.box__Cards--img img {
+    width: 100px;
+    height: 100px;
+}
+
+.box__NamePokemon {
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.box__IdPokemon {
+    font-size: 1vw;
+    color: #555;
+}
+
+.box__DivType {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vw;
+    height: 2vw;
+    width: 8vw;
+    border-radius: 6px;
+    color: white;
+    font-size: 18px;
+}
+
+.divButton__loading{
+    display: flex;
+    justify-content: center;
+    margin: 3vw ;
+}
+
+#buttonLoading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16vw;
+    border-radius: 6px;
+    border: 0000;
+    color: white;
+    font-size: 17px;
+    background-color:brown;
+    height: 4vw;
+    cursor: pointer;
+     transition: transform 0.2s ease;
+}
+
+#buttonLoading:hover{
+    transform: scale(1.05);
 }

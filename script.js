@@ -1,32 +1,46 @@
 const body = document.querySelector('body')
+const cardsContainer = document.getElementById('cardsContainer')
    
-  async function createElements(getName){
-        let divContainer = document.createElement('div')
-        divContainer.className = "cardsPokemon"
+  async function createElements(pokemon){
+        let boxCards = document.createElement('div')
+        boxCards.className = "box__Cards"
+        let divPictureImg = document.createElement('div')
+        divPictureImg.className = "box__Cards--img"
         let pictureImg = document.createElement('img')
-        pictureImg.className = "pokemonImg"
+        pictureImg.src = pokemon.img
+        let divIdNumber = document.createElement('div')
+        divIdNumber.className = "box__divIdPokemon"
         let idNumber = document.createElement('p')
-        idNumber.className = "pokemonId"
+        idNumber.className = "box__IdPokemon"
+        idNumber.textContent = `#${pokemon.id}`;
         let nameH2 = document.createElement('h2')
-        nameH2.className = "pokemonName"
-        nameH2.textContent =  getName
-        let typePokemon = document.createElement('p')
-        typePokemon.className = "typePokemon"
+        nameH2.className = "box__NamePokemon"
+        nameH2.textContent =  pokemon.name
 
-        divContainer.appendChild(pictureImg)
-        divContainer.appendChild(nameH2)
-        divContainer.appendChild(idNumber)
-        body.appendChild(divContainer)
+        let containerType = document.createElement('div')
+        containerType.className = "box__DivType"
+        containerType.style.backgroundColor = typeColors[pokemon.type]
+        let typePokemon = document.createElement('p')
+        typePokemon.className = "box__type"
+        typePokemon.textContent = pokemon.type
+
+        divIdNumber.appendChild(idNumber)
+        divPictureImg.appendChild(pictureImg)
+        containerType.appendChild(typePokemon)
+        boxCards.appendChild(divPictureImg);
+        boxCards.appendChild(divIdNumber);
+        boxCards.appendChild(nameH2);
+        boxCards.appendChild(containerType);
+        cardsContainer.appendChild(boxCards)
     } 
 
-    let button = document.getElementById('loadingPokemon')
+    let button = document.getElementById('buttonLoading')
     button.onclick = function(){
         getData()
     }
 
     async function getData (){
       const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=$20"
-
         await fetch(url)
     
         .then((response) =>{
@@ -41,25 +55,14 @@ const body = document.querySelector('body')
                 return pokemonData.json()
                 })  
                 .then((dados) => {
-                    console.log(dados,'dados')
-                    let getName = dados.name
-                    let getId = dados.id
-                    let getType = dados.types[0].type.name
-                    let getImg = document.getElementsByClassName("pokemonImg")
-                    getImg.src = dados.sprites['front_default']
-                    console.log(getName)
-                    console.log(getId)
-                    console.log(dados)
-                    console.log(getType , 'tipo')
 
-                    //createElements(getName )
-                    let pokemon = {
-                        img : getImg ,
-                        name : getName,
-                        id : getId,
-                        type : getType
-                     }              
-
+                  const pokemon = {
+                    img: dados.sprites.front_default,
+                    id: dados.id,
+                    name: dados.name,
+                    type: dados.types[0].type.name
+            };
+                        createElements(pokemon)
                      console.log(pokemon , "objeto") 
                 })
             }
@@ -68,7 +71,6 @@ const body = document.querySelector('body')
             console.log(error)
         })
     }
-
       const typeColors = {
         normal: '#A8A77A',
         fire: '#EE8130',
