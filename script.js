@@ -40,7 +40,7 @@ let button = document.getElementById('button__loading')
 }
 
 let offset = 0;
-const limit = 50;
+const limit = 40;
 
 async function getData (){     
   const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`   
