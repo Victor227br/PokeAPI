@@ -2,19 +2,21 @@ body {
     margin: 0;
     padding: 0;
     background-color: #445566;
+    font-family: 'Press Start 2P';
 }
 
 .logo{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    padding-top: 20px;
+    margin-bottom: 2vw;
+    font-family: 'Press Start 2P', cursive;
 }
 
-
-#cardsContainer {
+#pokedex {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -23,22 +25,22 @@ body {
     padding: 1vw;
 }
 
-.box__Cards {
+.pokedex__pokemon {
     display: flex;
     align-items: center;
     background-color: #e0e5ec;
     flex-direction: column;
     width: 15vw;
-    height: 21vw;
+    height: 20vw;
     border-radius: 10px;
     transition: transform 0.2s ease;
 }
 
-.box__Cards:hover {
+.pokedex__pokemon:hover {
     transform: scale(1.05);
 }
 
-.box__Cards--img {
+.pokemon__image-wrapper  {
     background-color: #2a2e37;
     width: 13vw;
     margin: 12px;
@@ -47,23 +49,23 @@ body {
     justify-content: center;
 }
 
-.box__Cards--img img {
+.pokemon__img {
     width: 100px;
     height: 100px;
 }
 
-.box__NamePokemon {
+.pokemon__name {
     margin: 0;
     margin-bottom: 1vw;
-    font-size: 20px;
+    font-size: 15px;
 }
 
-.box__IdPokemon {
+.pokemon__id{
     font-size: 14px;
     color: #555;
 }
 
-.box__DivType {
+.pokemon__background-type {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,30 +74,100 @@ body {
     width: 10vw;
     border-radius: 6px;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
 }
 
-.divButton__loading{
+.block__button-loading{
     display: flex;
     justify-content: center;
     margin: 3vw ;
 }
 
-#buttonLoading{
+#button__loading{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 16vw;
+    width: 15vw;
     border-radius: 6px;
     border: 0000;
     color: white;
-    font-size: 17px;
+    font-size: 12px;
+    font-style: bold;
+    font-family: 'Press Start 2P';
     background-color:brown;
     height: 4vw;
     cursor: pointer;
-     transition: transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
-#buttonLoading:hover{
+#button__loading:hover{
     transform: scale(1.05);
+}
+
+@media (max-width: 600px){
+
+    #pokedex{
+        gap: 5vw
+    }
+
+    .pokedex__pokemon{
+        width: 38vw;
+        height: 60vw;
+    }
+
+    .pokemon__image-wrapper {
+        width: 34vw;
+    }
+
+    .pokemon__background-type{
+        width: 34vw;
+        height: 6vw;
+        margin-top: 5vw;
+        font-size: 15px;
+        margin-bottom: 2vw;
+    }
+
+    #button__loading {
+        font-size: 18px;
+        height: 14vw;
+        width: 70vw;
+        margin: 6vw;
+    }
+
+    .pokemon__name{
+        font-size: 13px;
+    }
+}
+
+@media(min-width: 820px) and ( max-width: 1050px){
+
+    .logo{
+        justify-content: center;
+    }
+    .pokedex__pokemon{
+        width: 20vw;
+        height: 28vw;
+        flex-wrap: nowrap;
+    }
+
+    .pokemon__image-wrapper {
+        width: 18vw;
+    }
+
+    .pokemon__background-type{
+        height: 3vw;
+        width: 15vw;
+        margin: 2vw;
+    }
+
+    .pokemon__type{
+        font-size: 15px;
+    }
+
+    #button__loading {
+        width: 24vw;
+        height: 7vw;
+        font-size: 18px;
+    }
+
 }
